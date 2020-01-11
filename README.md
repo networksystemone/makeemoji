@@ -1,3 +1,5 @@
+![https://i.imgur.com/WBz7yX7.png](A screenshot of makeemoji.com)
+
 # makeemoji
 A React app that lets you create animated Slack / Discord custom emoji GIFs in the browser with canvas and gifshot
 
