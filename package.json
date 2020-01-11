@@ -1,0 +1,45 @@
+{
+  "name": "makeemoji",
+  "version": "0.0.0",
+  "description": "A website to make animated custom Slack emoji",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack --config ./webpack.config.js --mode production"
+  },
+  "repository": "git+https://github.com/mpopv/makeemoji.git",
+  "author": "Matt Popovich <mopovich@morningconsult.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mpopv/makeemoji/issues"
+  },
+  "homepage": "https://github.com/mpopv/makeemoji#readme",
+  "dependencies": {
+    "fix-orientation": "^1.0.0",
+    "gifshot": "^0.4.5",
+    "lodash.clonedeep": "^4.5.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "context-filter-polyfill": "davidenke/context-filter-polyfill",
+    "copy-webpack-plugin": "^5.0.5",
+    "html-minifier": "^4.0.0",
+    "html-webpack-plugin": "^4.0.0-beta.9",
+    "react-avatar-editor": "^11.0.7",
+    "react-hot-loader": "^4.8.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.29.6",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
