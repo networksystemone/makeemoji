@@ -1,7 +1,7 @@
 {
   "name": "makeemoji",
-  "version": "0.0.0",
-  "description": "A website to make animated custom Slack emoji",
+  "version": "0.0.1",
+  "description": "A React app that lets you create animated Slack / Discord custom emoji GIFs in the browser",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
@@ -9,7 +9,7 @@
   },
   "repository": "git+https://github.com/mpopv/makeemoji.git",
   "author": "Matt Popovich <mopovich@morningconsult.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mpopv/makeemoji/issues"
   },
