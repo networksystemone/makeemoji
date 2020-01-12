@@ -1,7 +1,7 @@
 ![A screenshot of makeemoji.com](https://i.imgur.com/WBz7yX7.png)
 
 # makeemoji
-A React app that lets you create animated Slack / Discord custom emoji GIFs in the browser with canvas and gifshot
+A React app that lets you create animated Slack / Discord custom emoji GIFs in the browser
 
 <a href="https://www.producthunt.com/posts/makeemoji?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-makeemoji" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=174711&theme=light" alt="MakeEmoji - Create animated custom emojis for Slack and Discord✨ | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
