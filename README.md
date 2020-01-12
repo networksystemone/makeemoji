@@ -19,3 +19,6 @@ $ yarn start
 # Build for production
 $ yarn build
 ```
+
+## License
+- [MIT](https://github.com/mpopv/makeemoji/blob/master/LICENSE)
