@@ -17,11 +17,11 @@ describe("MakeEmoji", () => {
 });
 
 async function prepareTest({ port = "3000" }) {
-  const server = forever.start(["http-server", "./dist", `-p ${port}`], {
+  const server = forever.start(["npx", "http-server", "./dist", `-p ${port}`], {
     max: 1,
     silent: true
   });
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   page.emulate({
     viewport: {
