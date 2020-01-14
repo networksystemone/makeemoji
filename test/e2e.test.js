@@ -1,3 +1,4 @@
+require("babel-polyfill");
 const puppeteer = require("puppeteer");
 const forever = require("forever-monitor");
 
@@ -12,11 +13,14 @@ describe("MakeEmoji", () => {
 
     await browser.close();
     server.stop();
-  });
+  }, 30000);
 });
 
 async function prepareTest({ port = "3000" }) {
-  const server = forever.start(["http-server", "./dist", `-p ${port}`]);
+  const server = forever.start(["http-server", "./dist", `-p ${port}`], {
+    max: 1,
+    silent: true
+  });
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   page.emulate({
