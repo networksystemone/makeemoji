@@ -83,7 +83,9 @@ export const App = () => {
   return (
     <main>
       <EditArea>
-        <Header data-test="h1">MakeEmoji</Header>
+        <Header data-test="h1">
+          MakeEmoji
+        </Header>
 
         <Subheader>
           Create ✨animated✨ custom emojis for Slack and Discord
