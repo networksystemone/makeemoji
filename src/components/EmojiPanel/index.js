@@ -56,6 +56,7 @@ const EmojiPanel = ({
       <Image
         src={gif}
         loading={loading}
+        data-emoji={name}
         alt={`The generated ${name} animated emoji`}
       />
       <Name>:{name}:</Name>

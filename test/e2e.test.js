@@ -1,38 +1,25 @@
 require("babel-polyfill");
-const puppeteer = require("puppeteer");
-const forever = require("forever-monitor");
+const { prepareTest, cleanupTest } = require('./utils');
+const spinGifDatauri = require('./spin-gif-datauri');
 
 describe("MakeEmoji", () => {
-  test("h1 loads correctly", async () => {
-    const { server, browser, page } = await prepareTest({ port: "4440" });
+  test("app loads correctly", async () => {
+    const { server, browser, page } = await prepareTest({ port: "4444" });
 
-    await page.waitForSelector(`[data-test="h1"]`);
+    await page.waitForSelector(`[data-test="h1"]`)
+    const h1Text = await page.$eval(`[data-test="h1"]`, el => el.innerHTML);
+    expect(h1Text).toBe(`MakeEmoji`);
 
-    const h1 = await page.$eval(`[data-test="h1"]`, e => e.innerHTML);
-    expect(h1).toBe(`MakeEmoji`);
+    await cleanupTest({ browser, server });
+  }, 30000);
 
-    await browser.close();
-    server.stop();
+  test("can generate GIFs", async () => {
+    const { server, browser, page } = await prepareTest({ port: "4445" });
+
+    await page.waitFor(30000);
+    await page.$eval(`#test-1`, el => el.click());
+    await page.waitForFunction(() => document.querySelector(`[data-emoji="spin"]`).src === spinGifDatauri);
+    
+    await cleanupTest({ browser, server });
   }, 30000);
 });
-
-async function prepareTest({ port = "3000" }) {
-  const server = forever.start(
-    ["./node_modules/.bin/http-server", "./dist", `-p ${port}`],
-    {
-      max: 1,
-      silent: true
-    }
-  );
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  page.emulate({
-    viewport: {
-      width: 500,
-      height: 2400
-    },
-    userAgent: ""
-  });
-  page.goto(`http://localhost:${port}/`);
-  return { server, browser, page };
-}
