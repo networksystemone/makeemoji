@@ -1110,6 +1110,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.7.tgz#01e4ea724d9e3bd50d90c11fd5980ba317d8fa11"
   integrity sha512-E6Zn0rffhgd130zbCbAr/JdXfXkoOUFAKNs/rF8qnafSJ8KYaA/j3oz7dcwal+lYjLA7xvdd5J4wdYpCTlP8+w==
 
+"@types/node@^13.1.8":
+  version "13.1.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.8.tgz#1d590429fe8187a02707720ecf38a6fe46ce294b"
+  integrity sha512-6XzyyNM9EKQW4HKuzbo/CkOIjn/evtCmsU+MUM1xDfJ+3/rNjBttM1NgN7AOQvN6tP1Sl1D1PIKMreTArnxM9A==
+
 "@types/prop-types@*":
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
@@ -1159,6 +1164,11 @@
   integrity sha512-SudIN9TRJ+v8g5pTG8RRCqfqTMNqgWCKKd3vtynhGzkIIjxaicNAMuY5TRadJ6tzDu3Dotf3ngaMILtmOdmWEQ==
   dependencies:
     source-map "^0.6.1"
+
+"@types/webpack-env@^1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.15.0.tgz#bd9956d5044b1fb43e869a9ba9148862ff98d9fd"
+  integrity sha512-TfcyNecCz8Z9/s90gBOBniyzZrTru8u2Vp0VZODq4KEBaQu8bfXvu7o/KUOecMpzjbFPUA7aqgSq628Iue5BQg==
 
 "@types/webpack-sources@*":
   version "0.1.5"
@@ -3636,10 +3646,10 @@ findup-sync@3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
-fix-orientation@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/fix-orientation/-/fix-orientation-1.0.0.tgz#9ad628a61a5fe228e9729fa61e7e374de1fd0003"
-  integrity sha512-mym3ATnPGeo/S9wzArJ7v9Fng+6amrvBL085LzNnXWHC+L6TSioHTGZWhqTBSVu5wziBwDrQARXcRdIwXHRKEg==
+fix-orientation@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/fix-orientation/-/fix-orientation-1.1.0.tgz#ab61a6c8ff2b36c6d075a2537536e5ce6a2b47ca"
+  integrity sha512-7APDplLhr9p7W1LX+TKlKPLpTJR+rDPqsVqDXOBq63VjdlSL6Wba2y6T2zUHIIJXbMs3h3FzTOGg346Vt3jTsw==
   dependencies:
     data-uri-to-u8 "~1.0.0"
     exif-js "^2.3.0"

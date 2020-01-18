@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-      "outDir": "./dist/",
-      "sourceMap": true,
-      "strictNullChecks": true,
-      "module": "es6",
-      "jsx": "react",
-      "target": "es5",
-      "allowJs": true 
-
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "module": "es6",
+    "jsx": "react",
+    "target": "es5",
+    "allowJs": true,
+    "esModuleInterop": true
   },
-  "include": [
-      "./src/"
-  ],
+  "include": ["./src/"],
   "exclude": ["node_modules", "dist"]
 }

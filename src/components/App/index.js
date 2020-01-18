@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy, useEffect } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import fixOrientation from "fix-orientation";
 import useResizedImage from "./useResizedImage";
 import {
@@ -20,6 +20,7 @@ import {
   Spaces,
   UploadedImage
 } from "./styled";
+import EmojiPanel from "../EmojiPanel/index";
 
 export const blank = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
 
@@ -39,18 +40,16 @@ const rotateExif = async uri => {
   });
 };
 
-const EmojiPanel = lazy(() => import("../EmojiPanel"));
-
 export const App = () => {
   const [base, setBase] = useState(blank);
   const [testImagesHaveLoaded, setTestImagesHaveLoaded] = useState(false);
-  const [testImages, setTestImages] = useState([]);
+  const [testImages, setTestImages] = useState(['']);
   const [areLoading, setAreLoading] = useState(false);
   const resized = useResizedImage(base);
 
   const handleFilesUpload = e => {
     e.preventDefault();
-    setBase(null);
+    setBase('');
     const reader = new FileReader();
     reader.onloadend = () => {
       (async () => {
@@ -251,13 +250,6 @@ export const App = () => {
               name="flip-fast"
               interval={0.03}
             />
-            {/* TODO: Fix race condition bug with onload for nyan frame images */}
-            {/* <EmojiPanel
-          img={resized}
-          transformation="nyan"
-          name="nyan"
-          interval={0.05}
-        /> */}
           </Suspense>
         </EmojiArea>
       )}
