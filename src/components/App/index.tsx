@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy, useEffect } from "react";
+import React, { FunctionComponent, useState, Suspense, useEffect } from "react";
 import fixOrientation from "fix-orientation";
 import useResizedImage from "./useResizedImage";
 import {
@@ -20,10 +20,11 @@ import {
   Spaces,
   UploadedImage
 } from "./styled";
+import EmojiPanel from "../EmojiPanel/index";
 
-export const blank = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
+export const blank: string = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
 
-const testImageData = [
+const testImageData: { url: string, alt: string }[] = [
   { url: "cat", alt: "An excited-looking white cat" },
   { url: "thonk", alt: "The thonk meme" },
   { url: "gandalf", alt: "Gandalf the wizard smiling" },
@@ -31,34 +32,52 @@ const testImageData = [
   { url: "surreal", alt: "The surreal man meme" }
 ];
 
-const rotateExif = async uri => {
+const rotateExif = async (uri:  string) => {
   return new Promise((resolve, reject) => {
-    fixOrientation(uri, { image: false }, fixed => {
-      resolve(fixed);
+    fixOrientation(uri, { image: false }, (fixedUri: string) => {
+      resolve(fixedUri);
     });
   });
 };
 
-const EmojiPanel = lazy(() => import("../EmojiPanel"));
+const getImageDataUri = async (uri: string) => {
+  const fetched: Response = await fetch(uri);
+  const blob: Blob = await fetched.blob();
+  const dataUri: string = await new Promise(resolve => {
+    const reader: FileReader = new FileReader();
+    reader.onload = () => {
+      const result: unknown = reader.result;
+      if (typeof result === 'string') resolve(result);
+    };
+    reader.readAsDataURL(blob);
+  });
+  return dataUri;
+}
 
-export const App = () => {
+export const App: FunctionComponent = () => {
   const [base, setBase] = useState(blank);
   const [testImagesHaveLoaded, setTestImagesHaveLoaded] = useState(false);
-  const [testImages, setTestImages] = useState([]);
+  const [testImages, setTestImages] = useState(['']);
   const [areLoading, setAreLoading] = useState(false);
   const resized = useResizedImage(base);
 
-  const handleFilesUpload = e => {
+  const handleFilesUpload = (e: Event) => {
     e.preventDefault();
-    setBase(null);
-    const reader = new FileReader();
+    setBase('');
+    const reader: FileReader = new FileReader();
     reader.onloadend = () => {
       (async () => {
-        const fixed = await rotateExif(reader.result);
-        setBase(fixed);
+        const result: unknown = reader.result;
+        if (typeof result === 'string') {
+          const fixed: unknown = await rotateExif(result);
+          if (typeof fixed === 'string') setBase(fixed);
+        }
       })();
     };
-    reader.readAsDataURL(e.target.files[0]);
+    const target = e.target as HTMLInputElement;
+    const files = target.files as FileList;
+    const file: File = files[0];
+    reader.readAsDataURL(file);
   };
 
   useEffect(() => {
@@ -114,8 +133,8 @@ export const App = () => {
             aria-label="Upload an image to make emojis"
             accept="image/x-png,image/gif,image/jpeg"
             type="file"
-            onChange={e => {
-              setBase(null);
+            onChange={(e: Event) => {
+              setBase('');
               handleFilesUpload(e);
             }}
           />
@@ -251,13 +270,6 @@ export const App = () => {
               name="flip-fast"
               interval={0.03}
             />
-            {/* TODO: Fix race condition bug with onload for nyan frame images */}
-            {/* <EmojiPanel
-          img={resized}
-          transformation="nyan"
-          name="nyan"
-          interval={0.05}
-        /> */}
           </Suspense>
         </EmojiArea>
       )}
@@ -305,14 +317,3 @@ export const App = () => {
 };
 
 export default App;
-
-async function getImageDataUri(url) {
-  const fetched = await fetch(url);
-  const blob = await fetched.blob();
-  const dataUri = await new Promise(resolve => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
-  return dataUri;
-}

@@ -11,19 +11,6 @@ export const partyTranslations = [
   [-8, 8]
 ];
 
-export const nyanTranslations = [
-  [0, 3],
-  [0, 2],
-  [0, -1],
-  [0, 2],
-  [0, 3],
-  [0, 1],
-  [0, -1],
-  [0, 0],
-  [0, 1],
-  [0, 3]
-];
-
 export const shakingTranslations = [
   [6, 0],
   [4, 0],

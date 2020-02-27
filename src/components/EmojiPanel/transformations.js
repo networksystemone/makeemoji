@@ -4,7 +4,6 @@ import saturateFilter from "./filters/saturate";
 import sepiaFilter from "./filters/sepia";
 import {
   partyTranslations,
-  // nyanTranslations,
   shakingTranslations,
   bounceTranslations,
   popInOutBottomTranslations,
@@ -13,7 +12,6 @@ import {
   popInOutRightTranslations
 } from "./translations";
 
-// import nyanFrames from "./base64/nyan";
 const contrast = 120;
 const saturate = 250;
 const backgroundColor = "#ffffff";
@@ -84,19 +82,6 @@ export default {
     contrastFilter(ctx, `${contrast}%`);
     saturateFilter(ctx, `${saturate}%`);
   },
-  // nyan: (ctx, img, i) => {
-  //   const width = 200;
-  //   const height = 200;
-  //   const nyanImg = document.createElement("img");
-  //   nyanImg.src = nyanFrames[i];
-  //   const [x, y] = nyanTranslations[i];
-  //   ctx.fillStyle = backgroundColor;
-  //   ctx.fillRect(0, 0, width, height);
-  //   ctx.drawImage(nyanImg, 0, 0, 100, 100);
-  //   ctx.translate(x, y);
-  //   ctx.drawImage(img, 40, 12, 60, 60);
-  //   contrastFilter(ctx, `${contrast}%`);
-  // },
   shaking: (ctx, img, i) => {
     const width = 100;
     const height = 100;
