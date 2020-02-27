@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const fontStack = `helvetica neue, Helvetica, Arial, lucida grande, sans-serif`;
+const fontStack: string = `helvetica neue, Helvetica, Arial, lucida grande, sans-serif`;
 
 export const EditArea = styled.div`
   width: calc(100% - 40px);
@@ -13,7 +13,10 @@ export const EditArea = styled.div`
   flex-direction: column;
 `;
 
-export const EditorArea = styled.div`
+interface EditorAreaProps {
+  readonly areLoading: boolean;
+};
+export const EditorArea = styled.div<EditorAreaProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -29,7 +32,10 @@ export const EditorArea = styled.div`
     `}
 `;
 
-export const LoadingText = styled.p`
+interface LoadingTextProps {
+  readonly areLoading: boolean;
+};
+export const LoadingText = styled.p<LoadingTextProps>`
   display: none;
   font-family: ${fontStack};
   opacity: 1 !important;
@@ -144,7 +150,12 @@ export const Subheader = styled.h2`
   }
 `;
 
-export const Text = styled.p`
+interface TextProps {
+  readonly size?: number;
+  readonly paddingTop?: boolean;
+  readonly paddingBottom?: boolean;
+}
+export const Text = styled.p<TextProps>`
   font-family: ${fontStack};
   font-size: 15px;
   text-align: center;

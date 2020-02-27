@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, Suspense, useEffect } from "react";
+import React, { FunctionComponent, useState, Suspense, useEffect, ChangeEvent } from "react";
 import fixOrientation from "fix-orientation";
 import useResizedImage from "./useResizedImage";
 import {
@@ -61,7 +61,7 @@ export const App: FunctionComponent = () => {
   const [areLoading, setAreLoading] = useState(false);
   const resized = useResizedImage(base);
 
-  const handleFilesUpload = (e: Event) => {
+  const handleFilesUpload = (e: ChangeEvent) => {
     e.preventDefault();
     setBase('');
     const reader: FileReader = new FileReader();
@@ -118,8 +118,10 @@ export const App: FunctionComponent = () => {
               <TestImageLink
                 key={i}
                 id={`#test-${i}`}
-                tabIndex="0"
-                onClick={e => setBase(e.target.src)}
+                tabIndex={0}
+                onClick={() => {
+                  setBase(src);
+                }}
               >
                 <img
                   src={src}
@@ -133,7 +135,7 @@ export const App: FunctionComponent = () => {
             aria-label="Upload an image to make emojis"
             accept="image/x-png,image/gif,image/jpeg"
             type="file"
-            onChange={(e: Event) => {
+            onChange={(e: ChangeEvent) => {
               setBase('');
               handleFilesUpload(e);
             }}
@@ -280,7 +282,10 @@ export const App: FunctionComponent = () => {
           action="https://tinyletter.com/makeemoji"
           method="post"
           target="popupwindow"
-          onsubmit="window.open('https://tinyletter.com/makeemoji', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+          onSubmit={() => {
+            window.open('https://tinyletter.com/makeemoji', 'popupwindow', 'scrollbars=yes,width=800,height=600');
+            return true;
+          }}
         >
           <EmailLabel htmlFor="tlemail">Email:</EmailLabel>
           <EmailInput type="text" name="email" id="tlemail" />
