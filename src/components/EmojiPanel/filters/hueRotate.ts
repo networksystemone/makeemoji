@@ -7,20 +7,24 @@ export default (context, rotation = "0deg") => {
   const { height, width } = context.canvas;
   const imageData = context.getImageData(0, 0, width, height);
   const { data } = imageData;
+
   // in rgba world, every
   // n * 4 + 0 is red,
   // n * 4 + 1 green and
   // n * 4 + 2 is blue
   // the fourth can be skipped as it's the alpha channel
   // https://github.com/makoConstruct/canvas-hue-rotate/blob/master/hueShiftCanvas.js
+  
   const h = ((amount % 1) + 1) % 1; // wraps the angle to unit interval, even when negative
   const th = h * 3;
   const thr = Math.floor(th);
   const d = th - thr;
   const b = 1 - d;
-  let ma, mb, mc;
-  let md, me, mf;
-  let mg, mh, mi;
+
+  let ma: number = 0, mb: number = 0, mc: number = 0;
+  let md: number = 0, me: number = 0, mf: number = 0;
+  let mg: number = 0, mh: number = 0, mi: number = 0;
+  
   switch (thr) {
     case 0:
       ma = b;
@@ -56,6 +60,7 @@ export default (context, rotation = "0deg") => {
       mi = d;
       break;
   }
+
   // do the pixels
   let place = 0;
   for (let y = 0; y < height; ++y) {
