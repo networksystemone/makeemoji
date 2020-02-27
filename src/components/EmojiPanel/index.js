@@ -6,7 +6,6 @@ import { blank } from "../App";
 
 const width = 100;
 const height = 100;
-const emojis = 14;
 
 const EmojiPanel = ({
   img,

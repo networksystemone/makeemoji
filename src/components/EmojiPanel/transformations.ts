@@ -17,8 +17,30 @@ const saturate = 250;
 const backgroundColor = "#ffffff";
 const frameCount = 10;
 
+type translation = [number, number];
+const translate = (
+  ctx: CanvasRenderingContext2D, 
+  img: HTMLImageElement, 
+  i: number, 
+  translations: translation[]
+) => {
+  const width = 100;
+  const height = 100;
+  const [x, y] = translations[i];
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0, 0, width, height);
+  ctx.translate(width / 2, height / 2);
+  ctx.filter = `contrast(${contrast}%)`;
+  ctx.translate(x, y);
+  ctx.drawImage(img, -width / 2, -height / 2);
+};
+
 export default {
-  colors: (ctx, img, i) => {
+  colors: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const angle = (360 / frameCount) * i;
@@ -29,7 +51,11 @@ export default {
     contrastFilter(ctx, contrast);
     saturateFilter(ctx, saturate);
   },
-  spin: (ctx, img, i) => {
+  spin: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const angle = (360 / frameCount) * i;
@@ -41,7 +67,11 @@ export default {
     ctx.drawImage(img, -width / 2, -height / 2);
     contrastFilter(ctx, contrast);
   },
-  spinColors: (ctx, img, i) => {
+  spinColors: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const angle = (360 / frameCount) * i;
@@ -56,7 +86,11 @@ export default {
     contrastFilter(ctx, contrast);
     saturateFilter(ctx, saturate);
   },
-  party: (ctx, img, i) => {
+  party: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const [x, y] = partyTranslations[i];
@@ -67,7 +101,11 @@ export default {
     ctx.drawImage(img, -width / 2, -height / 2);
     contrastFilter(ctx, contrast);
   },
-  partyColors: (ctx, img, i) => {
+  partyColors: (
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const angle = (360 / frameCount) * i;
@@ -82,7 +120,11 @@ export default {
     contrastFilter(ctx, contrast);
     saturateFilter(ctx, saturate);
   },
-  shaking: (ctx, img, i) => {
+  shaking: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const [x, y] = shakingTranslations[i];
@@ -93,7 +135,11 @@ export default {
     ctx.drawImage(img, -width / 2, -height / 2);
     contrastFilter(ctx, contrast);
   },
-  angry: (ctx, img, i) => {
+  angry: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     const [x, y] = shakingTranslations[i];
@@ -107,22 +153,46 @@ export default {
     saturateFilter(ctx, saturate * 3);
     contrastFilter(ctx, contrast);
   },
-  bounce: (ctx, img, i) => {
+  bounce: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     translate(ctx, img, i, bounceTranslations);
   },
-  popInOutBottom: (ctx, img, i) => {
+  popInOutBottom: (
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
+    i: number
+  ) => {
     translate(ctx, img, i, popInOutBottomTranslations);
   },
-  popInOutTop: (ctx, img, i) => {
+  popInOutTop: (
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
+    i: number
+  ) => {
     translate(ctx, img, i, popInOutTopTranslations);
   },
-  popInOutLeft: (ctx, img, i) => {
+  popInOutLeft: (
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
+    i: number
+  ) => {
     translate(ctx, img, i, popInOutLeftTranslations);
   },
-  popInOutRight: (ctx, img, i) => {
+  popInOutRight: (
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
+    i: number
+  ) => {
     translate(ctx, img, i, popInOutRightTranslations);
   },
-  flip: (ctx, img, i) => {
+  flip: (
+    ctx: CanvasRenderingContext2D, 
+    img: HTMLImageElement, 
+    i: number
+  ) => {
     const width = 100;
     const height = 100;
     ctx.fillStyle = backgroundColor;
@@ -133,15 +203,3 @@ export default {
     contrastFilter(ctx, contrast);
   }
 };
-
-function translate(ctx, img, i, translations) {
-  const width = 100;
-  const height = 100;
-  const [x, y] = translations[i];
-  ctx.fillStyle = backgroundColor;
-  ctx.fillRect(0, 0, width, height);
-  ctx.translate(width / 2, height / 2);
-  ctx.filter = `contrast(${contrast}%)`;
-  ctx.translate(x, y);
-  ctx.drawImage(img, -width / 2, -height / 2);
-}
