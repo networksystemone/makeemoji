@@ -282,7 +282,10 @@ export const App: FunctionComponent = () => {
           action="https://tinyletter.com/makeemoji"
           method="post"
           target="popupwindow"
-          onsubmit="window.open('https://tinyletter.com/makeemoji', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+          onSubmit={() => {
+            window.open('https://tinyletter.com/makeemoji', 'popupwindow', 'scrollbars=yes,width=800,height=600');
+            return true;
+          }}
         >
           <EmailLabel htmlFor="tlemail">Email:</EmailLabel>
           <EmailInput type="text" name="email" id="tlemail" />
