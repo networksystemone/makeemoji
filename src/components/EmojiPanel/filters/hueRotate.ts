@@ -1,4 +1,4 @@
-const hueRotate = (context, rotation = 0) => {
+const hueRotate = (context: CanvasRenderingContext2D, rotation: number = 0) => {
   let amount = rotation / 360;
   if (amount <= 0) return context;
 

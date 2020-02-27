@@ -1,4 +1,4 @@
-export default (context, saturation = 1) => {
+export default (context: CanvasRenderingContext2D, saturation: number = 1) => {
   let amount = saturation / 100;
   if (amount === 1) return context;
   if (amount < 0) amount = 0;
