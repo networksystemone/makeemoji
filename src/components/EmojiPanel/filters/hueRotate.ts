@@ -1,5 +1,5 @@
 const hueRotate = (context, rotation = 0) => {
-  let amount = rotation;
+  let amount = rotation / 360;
   if (amount <= 0) return context;
 
   const { height, width } = context.canvas;

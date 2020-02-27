@@ -1,4 +1,5 @@
 export default (context, amount = 0) => {
+  amount = amount / 100;
   if (amount <= 0) return context;
   if (amount > 1) amount = 1;
 

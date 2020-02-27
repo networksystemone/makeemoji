@@ -1,4 +1,5 @@
 const contrast = (context, amount = 1) => {
+  amount = amount / 100;
   if (amount === 1) return context;
   if (amount < 0) amount = 0;
 
