@@ -25,9 +25,9 @@ export default {
     const hdeg = 9 * angle;
     ctx.translate(width / 2, height / 2);
     ctx.drawImage(img, -width / 2, -height / 2);
-    hueRotateFilter(ctx, `${hdeg}deg`);
-    contrastFilter(ctx, `${contrast}%`);
-    saturateFilter(ctx, `${saturate}%`);
+    hueRotateFilter(ctx, hdeg);
+    contrastFilter(ctx, contrast);
+    saturateFilter(ctx, saturate);
   },
   spin: (ctx, img, i) => {
     const width = 100;
@@ -39,7 +39,7 @@ export default {
     ctx.translate(width / 2, height / 2);
     ctx.rotate(deg);
     ctx.drawImage(img, -width / 2, -height / 2);
-    contrastFilter(ctx, `${contrast}%`);
+    contrastFilter(ctx, contrast);
   },
   spinColors: (ctx, img, i) => {
     const width = 100;
@@ -52,9 +52,9 @@ export default {
     ctx.translate(width / 2, height / 2);
     ctx.rotate(deg);
     ctx.drawImage(img, -width / 2, -height / 2);
-    hueRotateFilter(ctx, `${hdeg}deg`);
-    contrastFilter(ctx, `${contrast}%`);
-    saturateFilter(ctx, `${saturate}%`);
+    hueRotateFilter(ctx, hdeg);
+    contrastFilter(ctx, contrast);
+    saturateFilter(ctx, saturate);
   },
   party: (ctx, img, i) => {
     const width = 100;
@@ -65,7 +65,7 @@ export default {
     ctx.translate(width / 2, height / 2);
     ctx.translate(x, y);
     ctx.drawImage(img, -width / 2, -height / 2);
-    contrastFilter(ctx, `${contrast}%`);
+    contrastFilter(ctx, contrast);
   },
   partyColors: (ctx, img, i) => {
     const width = 100;
@@ -78,9 +78,9 @@ export default {
     ctx.translate(width / 2, height / 2);
     ctx.translate(x, y);
     ctx.drawImage(img, -width / 2, -height / 2);
-    hueRotateFilter(ctx, `${hdeg}deg`);
-    contrastFilter(ctx, `${contrast}%`);
-    saturateFilter(ctx, `${saturate}%`);
+    hueRotateFilter(ctx, hdeg);
+    contrastFilter(ctx, contrast);
+    saturateFilter(ctx, saturate);
   },
   shaking: (ctx, img, i) => {
     const width = 100;
@@ -91,7 +91,7 @@ export default {
     ctx.translate(width / 2, height / 2);
     ctx.translate(x, y);
     ctx.drawImage(img, -width / 2, -height / 2);
-    contrastFilter(ctx, `${contrast}%`);
+    contrastFilter(ctx, contrast);
   },
   angry: (ctx, img, i) => {
     const width = 100;
@@ -102,10 +102,10 @@ export default {
     ctx.translate(width / 2, height / 2);
     ctx.translate(x, y);
     ctx.drawImage(img, -width / 2, -height / 2);
-    sepiaFilter(ctx, `100%`);
-    hueRotateFilter(ctx, `305deg`);
-    saturateFilter(ctx, `${saturate * 3}%`);
-    contrastFilter(ctx, `${contrast}%`);
+    sepiaFilter(ctx, 100);
+    hueRotateFilter(ctx, 305);
+    saturateFilter(ctx, saturate * 3);
+    contrastFilter(ctx, contrast);
   },
   bounce: (ctx, img, i) => {
     translate(ctx, img, i, bounceTranslations);
@@ -130,7 +130,7 @@ export default {
     ctx.translate(width / 2, height / 2);
     if (i > 4) ctx.scale(-1, 1);
     ctx.drawImage(img, -width / 2, -height / 2);
-    contrastFilter(ctx, `${contrast}%`);
+    contrastFilter(ctx, contrast);
   }
 };
 

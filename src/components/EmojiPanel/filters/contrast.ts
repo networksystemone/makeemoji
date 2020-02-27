@@ -1,7 +1,4 @@
-import { normalizeNumberPercentage } from "./utils";
-
 const contrast = (context, amount = 1) => {
-  amount = normalizeNumberPercentage(amount);
   if (amount === 1) return context;
   if (amount < 0) amount = 0;
 

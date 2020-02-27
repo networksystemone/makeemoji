@@ -1,7 +1,4 @@
-import { normalizeNumberPercentage } from "./utils";
-
 export default (context, amount = 0) => {
-  amount = normalizeNumberPercentage(amount);
   if (amount <= 0) return context;
   if (amount > 1) amount = 1;
 

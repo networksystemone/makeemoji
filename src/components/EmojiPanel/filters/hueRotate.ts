@@ -1,7 +1,5 @@
-import { normalizeAngle } from "./utils";
-
-export default (context, rotation = "0deg") => {
-  const amount = normalizeAngle(rotation);
+const hueRotate = (context, rotation = 0) => {
+  let amount = rotation / 360;
   if (amount <= 0) return context;
 
   const { height, width } = context.canvas;
@@ -78,3 +76,5 @@ export default (context, rotation = "0deg") => {
   context.putImageData(imageData, 0, 0);
   return context;
 };
+
+export default hueRotate;

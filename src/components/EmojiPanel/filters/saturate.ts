@@ -1,7 +1,5 @@
-import { normalizeNumberPercentage } from "./utils";
-
-export default (context, saturation = "1") => {
-  let amount = normalizeNumberPercentage(saturation);
+export default (context, saturation = 1) => {
+  let amount = saturation;
   if (amount === 1) return context;
   if (amount < 0) amount = 0;
 
