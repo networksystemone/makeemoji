@@ -1,4 +1,6 @@
-export const partyTranslations = [
+type translation = [number, number];
+
+export const partyTranslations: translation[] = [
   [0, 10],
   [10, 8],
   [15, 3],
@@ -11,20 +13,7 @@ export const partyTranslations = [
   [-8, 8]
 ];
 
-export const nyanTranslations = [
-  [0, 3],
-  [0, 2],
-  [0, -1],
-  [0, 2],
-  [0, 3],
-  [0, 1],
-  [0, -1],
-  [0, 0],
-  [0, 1],
-  [0, 3]
-];
-
-export const shakingTranslations = [
+export const shakingTranslations: translation[] = [
   [6, 0],
   [4, 0],
   [-2, 0],
@@ -37,7 +26,7 @@ export const shakingTranslations = [
   [2, 0]
 ];
 
-export const bounceTranslations = [
+export const bounceTranslations: translation[] = [
   [0, 6],
   [0, 4],
   [0, -2],
@@ -50,7 +39,7 @@ export const bounceTranslations = [
   [0, 2]
 ];
 
-export const popInOutBottomTranslations = [
+export const popInOutBottomTranslations: translation[] = [
   [0, 100],
   [0, 66],
   [0, 33],
@@ -63,7 +52,7 @@ export const popInOutBottomTranslations = [
   [0, 100]
 ];
 
-export const popInOutTopTranslations = [
+export const popInOutTopTranslations: translation[] = [
   [0, -100],
   [0, -66],
   [0, -33],
@@ -76,7 +65,7 @@ export const popInOutTopTranslations = [
   [0, -100]
 ];
 
-export const popInOutLeftTranslations = [
+export const popInOutLeftTranslations: translation[] = [
   [100, 0],
   [66, 0],
   [33, 0],
@@ -89,7 +78,7 @@ export const popInOutLeftTranslations = [
   [100, 0]
 ];
 
-export const popInOutRightTranslations = [
+export const popInOutRightTranslations: translation[] = [
   [-100, 0],
   [-66, 0],
   [-33, 0],

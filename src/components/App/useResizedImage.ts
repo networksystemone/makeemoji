@@ -1,28 +1,36 @@
 import { useState, useEffect } from "react";
 
-const SIZE = 100;
-const backgroundColor = "#ffffff";
+const SIZE: number = 100;
+const backgroundColor: string = "#ffffff";
 
-const useResizedImage = src => {
-  const [resizedImage, setResizedImage] = useState(null);
+const useResizedImage = (src: string) => {
+  const [resizedImage, setResizedImage] = useState('');
+  
+  const passResized = (dataURL: string) => {
+    setResizedImage(dataURL);
+  };
+  
   useEffect(() => {
     if (src) {
       const resizer = createResizer(document.createElement("canvas"));
-      resizer(src, SIZE, SIZE, dataURL => {
-        setResizedImage(dataURL);
-      });
+      resizer(src, SIZE, SIZE, passResized);
     } else {
-      setResizedImage(null);
+      setResizedImage('');
     }
   }, [src]);
   return resizedImage;
 };
 export default useResizedImage;
 
-function createResizer(canvas) {
-  return function(imgsrc, width, height, callback) {
-    let img;
-    let imgsrcstr = "string" === typeof imgsrc;
+function createResizer(canvas: HTMLCanvasElement) {
+  return function(
+    imgsrc: string, 
+    width: number, 
+    height: number, 
+    callback: Function
+  ) {
+    let img: any;
+    let imgsrcstr: boolean = "string" === typeof imgsrc;
     if (imgsrcstr) {
       img = new Image();
       img.src = imgsrc;
@@ -40,13 +48,17 @@ function createResizer(canvas) {
   };
   function onLoad() {
     const img = this;
+
     img._width == null &&
       (img._width = Math.round((img.width * img._height) / img.height));
     img._height == null &&
       (img._height = Math.round((img.height * img._width) / img.width));
     canvas.width = img._width;
     canvas.height = img._height;
-    const ctx = canvas.getContext("2d");
+
+    const ctx: CanvasRenderingContext2D | null = canvas.getContext("2d");
+    if (!ctx) return;
+    
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(

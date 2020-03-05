@@ -1,6 +1,9 @@
 import styled, { css, keyframes } from "styled-components";
 
-export const Panel = styled.button`
+interface PanelProps {
+  readonly clickable: boolean;
+};
+export const Panel = styled.button<PanelProps>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -39,7 +42,10 @@ const pulse = keyframes`
   100% { background-color: #fff; }
 `;
 
-export const Image = styled.img`
+interface ImageProps {
+  readonly loading: boolean;
+};
+export const Image = styled.img<ImageProps>`
   display: inline-block;
   width: 32px;
   height: 32px;
