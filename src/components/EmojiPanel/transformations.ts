@@ -16,6 +16,8 @@ const contrast = 120;
 const saturate = 250;
 const backgroundColor = "#ffffff";
 const frameCount = 10;
+const width = 100;
+const height = 100;
 
 type translation = [number, number];
 const translate = (
@@ -24,8 +26,6 @@ const translate = (
   i: number, 
   translations: translation[]
 ) => {
-  const width = 100;
-  const height = 100;
   const [x, y] = translations[i];
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, width, height);
@@ -41,8 +41,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const angle = (360 / frameCount) * i;
     const hdeg = 9 * angle;
     ctx.translate(width / 2, height / 2);
@@ -56,8 +54,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const angle = (360 / frameCount) * i;
     const deg = (angle * Math.PI) / 180;
     ctx.fillStyle = backgroundColor;
@@ -72,8 +68,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const angle = (360 / frameCount) * i;
     const deg = (angle * Math.PI) / 180;
     const hdeg = 9 * angle;
@@ -91,8 +85,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const [x, y] = partyTranslations[i];
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
@@ -106,8 +98,6 @@ export default {
     img: HTMLImageElement,
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const angle = (360 / frameCount) * i;
     const hdeg = 9 * angle;
     const [x, y] = partyTranslations[i];
@@ -125,8 +115,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const [x, y] = shakingTranslations[i];
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
@@ -140,8 +128,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     const [x, y] = shakingTranslations[i];
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
@@ -193,8 +179,6 @@ export default {
     img: HTMLImageElement, 
     i: number
   ) => {
-    const width = 100;
-    const height = 100;
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
     ctx.translate(width / 2, height / 2);

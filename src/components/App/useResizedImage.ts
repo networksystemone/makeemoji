@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const SIZE: number = 100;
-const backgroundColor: string = "#ffffff";
+const SIZE = 100;
+const backgroundColor = "#ffffff";
 
 const useResizedImage = (src: string) => {
   const [resizedImage, setResizedImage] = useState('');
