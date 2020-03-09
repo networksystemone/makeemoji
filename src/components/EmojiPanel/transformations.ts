@@ -21,9 +21,9 @@ const height = 100;
 
 type translation = [number, number];
 const translate = (
-  ctx: CanvasRenderingContext2D, 
-  img: HTMLImageElement, 
-  i: number, 
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  i: number,
   translations: translation[]
 ) => {
   const [x, y] = translations[i];
@@ -36,11 +36,7 @@ const translate = (
 };
 
 export default {
-  colors: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
-    i: number
-  ) => {
+  colors: (ctx: CanvasRenderingContext2D, img: HTMLImageElement, i: number) => {
     const angle = (360 / frameCount) * i;
     const hdeg = 9 * angle;
     ctx.translate(width / 2, height / 2);
@@ -49,11 +45,7 @@ export default {
     contrastFilter(ctx, contrast);
     saturateFilter(ctx, saturate);
   },
-  spin: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
-    i: number
-  ) => {
+  spin: (ctx: CanvasRenderingContext2D, img: HTMLImageElement, i: number) => {
     const angle = (360 / frameCount) * i;
     const deg = (angle * Math.PI) / 180;
     ctx.fillStyle = backgroundColor;
@@ -64,8 +56,8 @@ export default {
     contrastFilter(ctx, contrast);
   },
   spinColors: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
     i: number
   ) => {
     const angle = (360 / frameCount) * i;
@@ -80,11 +72,7 @@ export default {
     contrastFilter(ctx, contrast);
     saturateFilter(ctx, saturate);
   },
-  party: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
-    i: number
-  ) => {
+  party: (ctx: CanvasRenderingContext2D, img: HTMLImageElement, i: number) => {
     const [x, y] = partyTranslations[i];
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
@@ -111,8 +99,8 @@ export default {
     saturateFilter(ctx, saturate);
   },
   shaking: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
     i: number
   ) => {
     const [x, y] = shakingTranslations[i];
@@ -123,11 +111,7 @@ export default {
     ctx.drawImage(img, -width / 2, -height / 2);
     contrastFilter(ctx, contrast);
   },
-  angry: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
-    i: number
-  ) => {
+  angry: (ctx: CanvasRenderingContext2D, img: HTMLImageElement, i: number) => {
     const [x, y] = shakingTranslations[i];
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
@@ -139,11 +123,7 @@ export default {
     saturateFilter(ctx, saturate * 3);
     contrastFilter(ctx, contrast);
   },
-  bounce: (
-    ctx: CanvasRenderingContext2D, 
-    img: HTMLImageElement, 
-    i: number
-  ) => {
+  bounce: (ctx: CanvasRenderingContext2D, img: HTMLImageElement, i: number) => {
     translate(ctx, img, i, bounceTranslations);
   },
   popInOutBottom: (
@@ -174,11 +154,7 @@ export default {
   ) => {
     translate(ctx, img, i, popInOutRightTranslations);
   },
-  flip: (
-    ctx: CanvasRenderingContext2D,
-    img: HTMLImageElement, 
-    i: number
-  ) => {
+  flip: (ctx: CanvasRenderingContext2D, img: HTMLImageElement, i: number) => {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
     ctx.translate(width / 2, height / 2);

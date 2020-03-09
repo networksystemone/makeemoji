@@ -14,7 +14,7 @@ const contrast = (context: CanvasRenderingContext2D, amount: number = 1) => {
   // n * 4 + 2 is blue
   // the fourth can be skipped as it's the alpha channel
   // https://gist.github.com/jonathantneal/2053866
-  
+
   for (let i = 0; i < length; i += 4) {
     data[i + 0] = ((data[i + 0] / 255 - 0.5) * amount + 0.5) * 255;
     data[i + 1] = ((data[i + 1] / 255 - 0.5) * amount + 0.5) * 255;

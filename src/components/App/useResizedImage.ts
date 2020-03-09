@@ -4,11 +4,11 @@ const SIZE = 100;
 const backgroundColor = "#ffffff";
 
 const useResizedImage = (src: string) => {
-  const [resizedImage, setResizedImage] = useState('');
-  
+  const [resizedImage, setResizedImage] = useState("");
+
   useEffect(() => {
     if (!src) {
-      setResizedImage('');
+      setResizedImage("");
       return;
     }
     let img = new Image();
