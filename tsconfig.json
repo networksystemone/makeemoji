@@ -15,7 +15,7 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
-    "types": ["node"]
+    "types": ["node", "webpack-env"]
   },
   "include": ["./src/"],
   "exclude": ["node_modules", "dist"]
