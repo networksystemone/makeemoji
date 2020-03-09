@@ -8,7 +8,7 @@
     "target": "es5",
     "allowJs": false,
     "esModuleInterop": true,
-    "noImplicitAny": true,
+
     "noImplicitThis": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
