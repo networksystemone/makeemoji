@@ -11,7 +11,7 @@ const useResizedImage = (src: string) => {
       setResizedImage("");
       return;
     }
-    let img = new Image();
+    const img = new Image();
     img.onload = () => {
       const canvas = document.createElement("canvas");
       canvas.width = SIZE;

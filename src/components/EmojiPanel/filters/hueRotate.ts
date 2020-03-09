@@ -1,5 +1,5 @@
-const hueRotate = (context: CanvasRenderingContext2D, rotation: number = 0) => {
-  let amount = rotation / 360;
+const hueRotate = (context: CanvasRenderingContext2D, rotation = 0) => {
+  const amount = rotation / 360;
   if (amount <= 0) return context;
 
   const { height, width } = context.canvas;
@@ -19,15 +19,15 @@ const hueRotate = (context: CanvasRenderingContext2D, rotation: number = 0) => {
   const d = th - thr;
   const b = 1 - d;
 
-  let ma: number = 0,
-    mb: number = 0,
-    mc: number = 0,
-    md: number = 0,
-    me: number = 0,
-    mf: number = 0,
-    mg: number = 0,
-    mh: number = 0,
-    mi: number = 0;
+  let ma = 0,
+    mb = 0,
+    mc = 0,
+    md = 0,
+    me = 0,
+    mf = 0,
+    mg = 0,
+    mh = 0,
+    mi = 0;
 
   switch (thr) {
     case 0:

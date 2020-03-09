@@ -28,7 +28,7 @@ import {
 } from "./styled";
 import EmojiPanel from "../EmojiPanel/index";
 
-export const blank: string = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
+export const blank = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
 
 const testImageData: { url: string; alt: string }[] = [
   { url: "cat", alt: "An excited-looking white cat" },
@@ -308,15 +308,27 @@ export const App: FunctionComponent = () => {
 
       <Text size={12} paddingBottom={true}>
         Follow{" "}
-        <a href="https://twitter.com/makeemoji" target="_blank">
+        <a
+          href="https://twitter.com/makeemoji"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           @makeemoji
         </a>
         <Spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Spaces>Created by{" "}
-        <a href="https://twitter.com/mpopv" target="_blank">
+        <a
+          href="https://twitter.com/mpopv"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           Matt Popovich
         </a>
         <Spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Spaces>Inspired by{" "}
-        <a href="https://slackmojis.com/" target="_blank">
+        <a
+          href="https://slackmojis.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           Slackmojis
         </a>
       </Text>
