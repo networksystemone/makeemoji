@@ -14,7 +14,6 @@ import {
   ImageInput,
   TestImageArea,
   TestImageLink,
-  EmojiArea,
   EmailArea,
   EmailForm,
   EmailLabel,
@@ -117,7 +116,7 @@ export const App: FunctionComponent = () => {
         <Text>Try it out with these images, or upload your own!</Text>
 
         <EditorArea areLoading={areLoading}>
-          <TestImageArea>
+          <TestImageArea data-testid="test-image-area">
             {testImages.map((src, i) => (
               <TestImageLink
                 key={i}
@@ -154,7 +153,7 @@ export const App: FunctionComponent = () => {
       <Text size={14}>Click to download:</Text>
 
       {base && testImagesHaveLoaded && (
-        <EmojiArea>
+        <div className="emoji-area">
           <Suspense fallback={<div />}>
             <EmojiPanel
               img={resized}
@@ -277,7 +276,7 @@ export const App: FunctionComponent = () => {
               interval={0.03}
             />
           </Suspense>
-        </EmojiArea>
+        </div>
       )}
 
       <EmailArea>

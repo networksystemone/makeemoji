@@ -54,17 +54,6 @@ export const ImageInput = styled.input`
   max-width: 100%;
 `;
 
-export const EmojiArea = styled.div`
-  width: calc(100% - 40px);
-  max-width: 1000px;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-
 export const EmailArea = styled.div`
   width: calc(100% - 40px);
   max-width: 500px;
