@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const fontStack: string = `helvetica neue, Helvetica, Arial, lucida grande, sans-serif`;
+const fontStack = `helvetica neue, Helvetica, Arial, lucida grande, sans-serif`;
 
 export const EditArea = styled.div`
   width: calc(100% - 40px);
@@ -15,7 +15,7 @@ export const EditArea = styled.div`
 
 interface EditorAreaProps {
   readonly areLoading: boolean;
-};
+}
 export const EditorArea = styled.div<EditorAreaProps>`
   position: relative;
   display: flex;
@@ -34,7 +34,7 @@ export const EditorArea = styled.div<EditorAreaProps>`
 
 interface LoadingTextProps {
   readonly areLoading: boolean;
-};
+}
 export const LoadingText = styled.p<LoadingTextProps>`
   display: none;
   font-family: ${fontStack};

@@ -2,7 +2,7 @@ import styled, { css, keyframes } from "styled-components";
 
 interface PanelProps {
   readonly clickable: boolean;
-};
+}
 export const Panel = styled.button<PanelProps>`
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@ const pulse = keyframes`
 
 interface ImageProps {
   readonly loading: boolean;
-};
+}
 export const Image = styled.img<ImageProps>`
   display: inline-block;
   width: 32px;

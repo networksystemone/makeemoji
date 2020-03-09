@@ -7,14 +7,14 @@ import { blank } from "../App";
 const WIDTH = 100;
 const HEIGHT = 100;
 type TransformationFn = (
-  ctx: CanvasRenderingContext2D, 
-  img: HTMLImageElement, 
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
   i: number
 ) => void;
 
 const transform = async (
-  image50: string, 
-  transformation: keyof typeof transformations, 
+  image50: string,
+  transformation: keyof typeof transformations,
   i: number
 ) => {
   return new Promise((resolve, reject) => {
@@ -25,7 +25,8 @@ const transform = async (
     img.onload = () => {
       const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
       ctx.clearRect(0, 0, WIDTH, HEIGHT);
-      const transformationFn: TransformationFn = transformations[transformation]
+      const transformationFn: TransformationFn =
+        transformations[transformation];
       transformationFn(ctx, img, i);
       resolve(canvas.toDataURL("image/png"));
       if (img.parentNode) img.parentNode.removeChild(img);
@@ -81,12 +82,15 @@ const EmojiPanel = ({
         frameDuration: 1,
         interval
       };
-      gifshot.createGIF(opts, ({ error, image: nextGif }: GifshotCreateGifReturnObject): void => {
-        if (!error) {
-          setGif(nextGif);
-          setLoading(false);
+      gifshot.createGIF(
+        opts,
+        ({ error, image: nextGif }: GifshotCreateGifReturnObject): void => {
+          if (!error) {
+            setGif(nextGif);
+            setLoading(false);
+          }
         }
-      });
+      );
     })();
   }, [img]);
 

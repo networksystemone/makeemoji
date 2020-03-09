@@ -1,4 +1,4 @@
-export default (context: CanvasRenderingContext2D, amount: number = 0) => {
+export default (context: CanvasRenderingContext2D, amount = 0) => {
   amount = amount / 100;
   if (amount <= 0) return context;
   if (amount > 1) amount = 1;
@@ -14,7 +14,7 @@ export default (context: CanvasRenderingContext2D, amount: number = 0) => {
   // n * 4 + 2 is blue
   // the fourth can be skipped as it's the alpha channel
   // https://github.com/licson0729/CanvasEffects/blob/master/CanvasEffects.js#L464-L466
-  
+
   for (let i = 0; i < length; i += 4) {
     const r = data[i + 0];
     const g = data[i + 1];
