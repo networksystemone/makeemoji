@@ -3,6 +3,7 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "module": "es6",
+    "lib": ["es2015", "dom"],
     "moduleResolution": "node",
     "jsx": "react",
     "target": "es5",
@@ -13,7 +14,8 @@
     "alwaysStrict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "strictPropertyInitialization": true
+    "strictPropertyInitialization": true,
+    "types": ["node"]
   },
   "include": ["./src/"],
   "exclude": ["node_modules", "dist"]

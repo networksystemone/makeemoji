@@ -175,7 +175,7 @@ export default {
     translate(ctx, img, i, popInOutRightTranslations);
   },
   flip: (
-    ctx: CanvasRenderingContext2D, 
+    ctx: CanvasRenderingContext2D,
     img: HTMLImageElement, 
     i: number
   ) => {
