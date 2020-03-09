@@ -2,13 +2,18 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
-    "strictNullChecks": true,
     "module": "es6",
     "moduleResolution": "node",
     "jsx": "react",
     "target": "es5",
-    "allowJs": true,
-    "esModuleInterop": true
+    "allowJs": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true
   },
   "include": ["./src/"],
   "exclude": ["node_modules", "dist"]
