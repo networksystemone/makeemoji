@@ -1,4 +1,10 @@
-import React, { FunctionComponent, useState, Suspense, useEffect, ChangeEvent } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  Suspense,
+  useEffect,
+  ChangeEvent
+} from "react";
 import fixOrientation from "fix-orientation";
 import useResizedImage from "./useResizedImage";
 import {
@@ -22,9 +28,9 @@ import {
 } from "./styled";
 import EmojiPanel from "../EmojiPanel/index";
 
-export const blank: string = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
+export const blank = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`;
 
-const testImageData: { url: string, alt: string }[] = [
+const testImageData: { url: string; alt: string }[] = [
   { url: "cat", alt: "An excited-looking white cat" },
   { url: "thonk", alt: "The thonk meme" },
   { url: "gandalf", alt: "Gandalf the wizard smiling" },
@@ -32,7 +38,7 @@ const testImageData: { url: string, alt: string }[] = [
   { url: "surreal", alt: "The surreal man meme" }
 ];
 
-const rotateExif = async (uri:  string) => {
+const rotateExif = async (uri: string) => {
   return new Promise((resolve, reject) => {
     fixOrientation(uri, { image: false }, (fixedUri: string) => {
       resolve(fixedUri);
@@ -47,30 +53,30 @@ const getImageDataUri = async (uri: string) => {
     const reader: FileReader = new FileReader();
     reader.onload = () => {
       const result: unknown = reader.result;
-      if (typeof result === 'string') resolve(result);
+      if (typeof result === "string") resolve(result);
     };
     reader.readAsDataURL(blob);
   });
   return dataUri;
-}
+};
 
 export const App: FunctionComponent = () => {
   const [base, setBase] = useState(blank);
   const [testImagesHaveLoaded, setTestImagesHaveLoaded] = useState(false);
-  const [testImages, setTestImages] = useState(['']);
+  const [testImages, setTestImages] = useState([""]);
   const [areLoading, setAreLoading] = useState(false);
   const resized = useResizedImage(base);
 
   const handleFilesUpload = (e: ChangeEvent) => {
     e.preventDefault();
-    setBase('');
+    setBase("");
     const reader: FileReader = new FileReader();
     reader.onloadend = () => {
       (async () => {
         const result: unknown = reader.result;
-        if (typeof result === 'string') {
+        if (typeof result === "string") {
           const fixed: unknown = await rotateExif(result);
-          if (typeof fixed === 'string') setBase(fixed);
+          if (typeof fixed === "string") setBase(fixed);
         }
       })();
     };
@@ -102,9 +108,7 @@ export const App: FunctionComponent = () => {
   return (
     <main>
       <EditArea>
-        <Header data-test="h1">
-          MakeEmoji
-        </Header>
+        <Header data-test="h1">MakeEmoji</Header>
 
         <Subheader>
           Create ✨animated✨ custom emojis for Slack and Discord
@@ -136,7 +140,7 @@ export const App: FunctionComponent = () => {
             accept="image/x-png,image/gif,image/jpeg"
             type="file"
             onChange={(e: ChangeEvent) => {
-              setBase('');
+              setBase("");
               handleFilesUpload(e);
             }}
           />
@@ -283,7 +287,11 @@ export const App: FunctionComponent = () => {
           method="post"
           target="popupwindow"
           onSubmit={() => {
-            window.open('https://tinyletter.com/makeemoji', 'popupwindow', 'scrollbars=yes,width=800,height=600');
+            window.open(
+              "https://tinyletter.com/makeemoji",
+              "popupwindow",
+              "scrollbars=yes,width=800,height=600"
+            );
             return true;
           }}
         >
@@ -300,15 +308,27 @@ export const App: FunctionComponent = () => {
 
       <Text size={12} paddingBottom={true}>
         Follow{" "}
-        <a href="https://twitter.com/makeemoji" target="_blank">
+        <a
+          href="https://twitter.com/makeemoji"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           @makeemoji
         </a>
         <Spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Spaces>Created by{" "}
-        <a href="https://twitter.com/mpopv" target="_blank">
+        <a
+          href="https://twitter.com/mpopv"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           Matt Popovich
         </a>
         <Spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Spaces>Inspired by{" "}
-        <a href="https://slackmojis.com/" target="_blank">
+        <a
+          href="https://slackmojis.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           Slackmojis
         </a>
       </Text>

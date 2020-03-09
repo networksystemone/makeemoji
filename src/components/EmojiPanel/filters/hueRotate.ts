@@ -1,5 +1,5 @@
-const hueRotate = (context: CanvasRenderingContext2D, rotation: number = 0) => {
-  let amount = rotation / 360;
+const hueRotate = (context: CanvasRenderingContext2D, rotation = 0) => {
+  const amount = rotation / 360;
   if (amount <= 0) return context;
 
   const { height, width } = context.canvas;
@@ -12,17 +12,23 @@ const hueRotate = (context: CanvasRenderingContext2D, rotation: number = 0) => {
   // n * 4 + 2 is blue
   // the fourth can be skipped as it's the alpha channel
   // https://github.com/makoConstruct/canvas-hue-rotate/blob/master/hueShiftCanvas.js
-  
+
   const h = ((amount % 1) + 1) % 1; // wraps the angle to unit interval, even when negative
   const th = h * 3;
   const thr = Math.floor(th);
   const d = th - thr;
   const b = 1 - d;
 
-  let ma: number = 0, mb: number = 0, mc: number = 0;
-  let md: number = 0, me: number = 0, mf: number = 0;
-  let mg: number = 0, mh: number = 0, mi: number = 0;
-  
+  let ma = 0,
+    mb = 0,
+    mc = 0,
+    md = 0,
+    me = 0,
+    mf = 0,
+    mg = 0,
+    mh = 0,
+    mi = 0;
+
   switch (thr) {
     case 0:
       ma = b;

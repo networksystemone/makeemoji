@@ -4,14 +4,14 @@ const SIZE = 100;
 const backgroundColor = "#ffffff";
 
 const useResizedImage = (src: string) => {
-  const [resizedImage, setResizedImage] = useState('');
-  
+  const [resizedImage, setResizedImage] = useState("");
+
   useEffect(() => {
     if (!src) {
-      setResizedImage('');
+      setResizedImage("");
       return;
     }
-    let img = new Image();
+    const img = new Image();
     img.onload = () => {
       const canvas = document.createElement("canvas");
       canvas.width = SIZE;

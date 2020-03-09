@@ -1,2 +1,2 @@
-declare module 'fix-orientation';
-declare module 'gifshot';
+declare module "fix-orientation";
+declare module "gifshot";
