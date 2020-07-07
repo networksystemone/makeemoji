@@ -307,15 +307,7 @@ export const App: FunctionComponent = () => {
       </EmailArea>
 
       <Text size={12} paddingBottom={true}>
-        Follow{" "}
-        <a
-          href="https://twitter.com/makeemoji"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          @makeemoji
-        </a>
-        <Spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Spaces>Created by{" "}
+        Created by{" "}
         <a
           href="https://twitter.com/mpopv"
           target="_blank"
